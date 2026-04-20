@@ -45,6 +45,39 @@
 - **mode**: `multiple` 时使用 `Multi` 子组件：选项前增加「全选」（value 为 `-99`），并自定义全选/取消逻辑。
 - **其余属性**: 透传 antd `Select`（如 `placeholder` 默认「请选择」、`allowClear` 默认 true、`disabled` 等）。
 
+## 表单项子组件（Storybook）
+
+根目录执行 `yarn storybook`，在侧边栏 **Form** 下可查看下列演示（各目录均有 `*.stories.tsx`，Docs 面板含参数说明）：
+
+| 组件           | Story 标题            | 说明                         |
+| -------------- | --------------------- | ---------------------------- |
+| QA             | `Form/QA`             | 问号 Tooltip                 |
+| InputGo        | `Form/InputGo`        | 输入框 + fixedWidth + showQA |
+| InputNumberGo  | `Form/InputNumberGo`  | 数字输入 + fixedWidth        |
+| TextareaGo     | `Form/TextareaGo`     | 多行 + 默认字数与 autoSize   |
+| SwitchGo       | `Form/SwitchGo`       | 开关 + showQA                |
+| RangePickerGo  | `Form/RangePickerGo`  | 日期区间 + 快捷 ranges       |
+| InputLoadingGo | `Form/InputLoadingGo` | 聚焦请求 + 加载态 + tips     |
+| SelectGo       | `Form/SelectGo`       | 下拉（见上文 SelectGo 节）   |
+| FormTool       | `Form/FormTool`       | items 配置化                 |
+| FormWidget     | `Form/FormWidget`     | Form + clearRules            |
+| SubmitForm     | `Form/SubmitForm`     | 分组提交表单                 |
+
+### InputGo / InputNumberGo / TextareaGo / SwitchGo
+
+- **fixedWidth**（InputGo、InputNumberGo、TextareaGo）：为 true 时使用 `WIDTH_SIZE_ENUM.s` 限制宽度。
+- **showQA**（InputGo、TextareaGo、SwitchGo 等）：`boolean \| { title: string }`，右侧问号说明。
+- 其余字段分别透传对应 antd 组件（Input / InputNumber / TextArea / Switch）。
+
+### RangePickerGo
+
+- 基于 **moment** 的 `RangePicker`，内置快捷范围（今天、当月、3/7/15/30 日等），默认占位「开始时间 / 结束时间」。
+
+### InputLoadingGo
+
+- **request**：`fetchFunc`（异步）、`formatResult`（结果展开到内部 `InputNumberGo`）、`formatParams`（用 `fm.getFieldsValue()` 组装参数）、`formatTips`、`loadingText`。
+- **fm**：可选，传入后 focus 时可根据整表字段请求建议值。
+
 ## SubmitForm
 
 > 提交表单，底部默认配置「返回」与「提交」按钮

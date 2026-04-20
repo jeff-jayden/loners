@@ -39,3 +39,5 @@ screenshot
 .eslintcache
 .changelog
 .changelog.md
+
+storybook-static
