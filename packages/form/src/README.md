@@ -1,5 +1,7 @@
 [toc]
 
+> **完整组件列表、属性与方法说明**以仓库根目录 [README.md](../../../README.md) 为准；以下为 `loners-form` 包内快速索引与 `items` 示例。
+
 ## FormTool
 
 > FormItem 的配置化工具
